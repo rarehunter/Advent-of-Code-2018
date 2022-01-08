@@ -26,7 +26,8 @@ public class Day5_Alchemical_Reduction {
     }
 
     // Returns true if the given characters react with each other (if they are the lowercase and uppercase version
-    // of the same character). Returns false otherwise.
+    // of the same character). Returns false otherwise. Note: 32 is the difference in ASCII values between
+    // uppercase and lowercase characters.
     private static boolean reacts(char a, char b) {
         return (Math.abs((int)a - (int)b) == 32 &&
             ((Character.isUpperCase(a) && Character.isLowerCase(b)) ||
@@ -35,7 +36,7 @@ public class Day5_Alchemical_Reduction {
 
     // Given a polymer string and two characters to ignore, iterates through the characters
     // of the polymer and removes adjacent pairs of uppercase and lowercase letters of the same letter.
-    // If an uppercase/lowercase char is given, ignores such chars from the polymer.
+    // (Only used in part 2: If an uppercase/lowercase char is given, ignores such chars from the polymer)
     private static int reactPolymer(String polymer, char uppercase, char lowercase) {
         Stack<Character> stack = new Stack<>();
 

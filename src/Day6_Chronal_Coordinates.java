@@ -126,6 +126,8 @@ public class Day6_Chronal_Coordinates {
 
         int maxArea = 0;
 
+        // Finally, from the remaining points in the dictionary,
+        // return the one that has the max area.
         for (Point p : areas.keySet()) {
             if (areas.get(p) > maxArea)
                 maxArea = areas.get(p);

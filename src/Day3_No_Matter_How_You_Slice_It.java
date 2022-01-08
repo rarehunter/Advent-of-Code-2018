@@ -67,7 +67,7 @@ public class Day3_No_Matter_How_You_Slice_It {
     // that at least two fabrics have been placed there and a '*' indicating that a single fabric is placed there.
     // Return the count of all 'X' values.
     private static int part1(List<Fabric> fabrics) {
-        char[][] grid = new char[1000][1000];
+        char[][] grid = new char[1000][1000]; // we assume 1000x1000 grid as the problem
 
         for (Fabric fabric : fabrics) {
             placeFabric(grid, fabric);
@@ -129,6 +129,7 @@ public class Day3_No_Matter_How_You_Slice_It {
         return 0;
     }
 
+    // Class to represent a fabric
     static class Fabric {
         int id;
         int top;

@@ -25,6 +25,9 @@ public class Day4_Repose_Record {
 
                 int guardId = -1;
                 int recordType;
+
+                // Use an int to denote the type of record it is:
+                // Either a guard falling asleep, waking up, or a new shift.
                 if (line.contains("asleep")) {
                     recordType = FALL_ASLEEP_RECORD;
                 } else if (line.contains("wakes")) {
@@ -43,6 +46,8 @@ public class Day4_Repose_Record {
                 records.add(r);
             }
 
+            // We are not guaranteed that the input of records is ordered,
+            // so we need to sort it first.
             Collections.sort(records);
 
             int part1 = part1(records);
@@ -59,7 +64,7 @@ public class Day4_Repose_Record {
     // Given a dictionary that maps a guard to their list of sleep-time and wake-time pairs,
     // return the ID of the guard who slept the most.
     private static int findMostAsleepGuard(Map<Integer, List<Pair>> map) {
-        int guardIdMaxAsleep = 0;
+        int guardIdMostAsleep = 0;
         int maxMinutesAsleep = 0;
 
         for (Integer guardId : map.keySet()) {
@@ -70,11 +75,11 @@ public class Day4_Repose_Record {
             }
             if (sum > maxMinutesAsleep) {
                 maxMinutesAsleep = sum;
-                guardIdMaxAsleep = guardId;
+                guardIdMostAsleep = guardId;
             }
         }
 
-        return guardIdMaxAsleep;
+        return guardIdMostAsleep;
     }
 
     // Given a list of sleep-time and wake-time pairs, return the most common minute represented.
@@ -104,6 +109,8 @@ public class Day4_Repose_Record {
         return maxMinute;
     }
 
+    // Iterates through the list of records and returns a dictionary mapping
+    // a guard id to a list of their sleep-time and wake-time pairs.
     private static Map<Integer, List<Pair>> constructGuardIdTimeMappings(List<Record> records) {
         int currentGuardId = 0;
         int currentSleepMinute = 0;
