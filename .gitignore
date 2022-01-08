@@ -1,3 +1,8 @@
+Advent-of-Code-2018.iml
+.DS_Store
+out/
+.idea/
+
 # Compiled class file
 *.class
 
